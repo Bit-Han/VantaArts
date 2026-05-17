@@ -9,10 +9,10 @@ export default function Footer() {
 					{/* Brand */}
 					<div>
 						<p className="text-[14px] font-medium tracking-[0.08em] uppercase text-[#666666] mb-4">
-							POSH &amp; PAINTED
+							SHEFFEX ARTS
 						</p>
 						<p className="text-[12px] text-[#666666] leading-relaxed mb-6">
-							Transforming faces, one masterpiece at a time.
+							Transforming Arts, one masterpiece at a time.
 						</p>
 						<div className="flex gap-4">
 							<a
@@ -52,7 +52,7 @@ export default function Footer() {
 								Portfolio
 							</Link>
 							<Link
-								href="/services/face-painting"
+								href="/services/inks"
 								className="text-[16px] text-[#a0a0a0] hover:text-white transition-colors"
 							>
 								Services
@@ -81,17 +81,17 @@ export default function Footer() {
 						</p>
 						<div className="flex flex-col gap-3">
 							<a
-								href="https://wa.me/15552345678"
+								href="https://wa.me/2348094221721"
 								target="_blank"
 								rel="noopener noreferrer"
 								className="text-[16px] text-[#a0a0a0] hover:text-white transition-colors"
 							>
-								+1 (555) 234-5678
+								+2348094221721
 							</a>
 							<p className="text-[16px] text-[#a0a0a0]">
-								hello@poshandpainted.com
+								sheffexayomide@gmail.com
 							</p>
-							<p className="text-[16px] text-[#a0a0a0]">Los Angeles, CA</p>
+							<p className="text-[16px] text-[#a0a0a0]">Lagos, NIG</p>
 						</div>
 					</div>
 				</div>
@@ -99,7 +99,7 @@ export default function Footer() {
 				{/* Bottom bar */}
 				<div className="mt-12 pt-6 border-t border-[#2a2a2a] flex flex-col sm:flex-row justify-between items-center gap-4">
 					<p className="text-[12px] text-[#666666]">
-						&copy; 2025 Posh &amp; Painted. All rights reserved.
+						&copy; 2026 SHEFFEX ARTS. All rights reserved.
 					</p>
 					<div className="flex gap-4">
 						<span className="text-[12px] text-[#666666] cursor-pointer hover:text-[#a0a0a0]">
