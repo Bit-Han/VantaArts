@@ -1,9 +1,11 @@
-import { WHATSAPP_URL } from "@/lib/data/constants";
+
+
+const whatsappUrl = `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? ""}`
 
 export default function WhatsAppButton() {
 	return (
 		<a
-			href={WHATSAPP_URL}
+			href={whatsappUrl}
 			target="_blank"
 			rel="noopener noreferrer"
 			className="fixed bottom-6 right-6 z-100 w-14 h-14 rounded-full flex items-center justify-center bg-[#c17a53] text-white whatsapp-pulse transition-transform hover:scale-110"
