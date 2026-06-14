@@ -220,7 +220,7 @@ const results = useMemo(()=> searchSections(query), [query]);
         borderColor: "#1a1a1a",
       }}
     >
-      <div className="flex items-center justify-between h-16 px-6 md:px-8">
+      <div className="flex items-center justify-between h-16 px-4 md:px-8">
 
         {/* ── Search Bar ─────────────────────────────────────────────────── */}
         <div className="flex-1 max-w-xl" ref={searchRef}>
@@ -367,7 +367,7 @@ const results = useMemo(()=> searchSections(query), [query]);
         </div>
 
         {/* ── Right Side ─────────────────────────────────────────────────── */}
-        <div className="flex items-center gap-2 ml-4">
+        <div className="flex items-center gap-1 sm:gap-2 ml-2 sm:ml-4">
 
           {/* Site name badge */}
           <div

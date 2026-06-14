@@ -35,6 +35,38 @@ export async function GET(): Promise<NextResponse> {
     db.from("service_pricing").select("*").order("sort_order"),
   ]);
 
+
+    if (servicesResult.error) {
+			console.error(
+				"GET /api/admin/services - services error:",
+				servicesResult.error,
+			);
+			return NextResponse.json(
+				{ error: servicesResult.error.message },
+				{ status: 500 },
+			);
+		}
+		if (detailsResult.error) {
+			console.error(
+				"GET /api/admin/services - details error:",
+				detailsResult.error,
+			);
+			return NextResponse.json(
+				{ error: detailsResult.error.message },
+				{ status: 500 },
+			);
+		}
+		if (pricingResult.error) {
+			console.error(
+				"GET /api/admin/services - pricing error:",
+				pricingResult.error,
+			);
+			return NextResponse.json(
+				{ error: pricingResult.error.message },
+				{ status: 500 },
+			);
+		}
+    
   const services = (servicesResult.data ?? []) as ServiceRow[];
   const details = (detailsResult.data ?? []) as ServiceDetailRow[];
   const pricing = (pricingResult.data ?? []) as ServicePricingRow[];

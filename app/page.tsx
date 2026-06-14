@@ -1,27 +1,3 @@
-// import HeroVideoSlider from "@/components/section/HeroVideoSlider";
-// import Navbar from "@/components/layout/Navbar";
-// import Footer from "@/components/layout/Footer";
-// import WorkCategories from "@/components/section/WorkCategories";
-// import FeaturedWorks from "@/components/section/FeaturedWorks";
-// import Testimonials from "@/components/section/Testimonials";
-// import AboutSection from "@/components/section/AboutSection";
-// import CTABanner from "@/components/section/CTABanner";
-
-// export default function Home() {
-// 	return (
-// 		<main>
-// 			<Navbar />
-// 			<HeroVideoSlider />
-// 			<WorkCategories />
-// 			<FeaturedWorks />
-// 			<Testimonials />
-// 			<AboutSection />
-// 			<CTABanner />
-// 			<Footer />
-// 		</main>
-// 	);
-// }
-
 import HeroVideoSlider from "@/components/section/HeroVideoSlider";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -32,25 +8,25 @@ import AboutSection from "@/components/section/AboutSection";
 import CTABanner from "@/components/section/CTABanner";
 
 import {
-  getHeroData,
-  getCategories,
-  getFeaturedWorks,
-  getTestimonials,
-  getAboutSection,
-  getSettings,
+	getHeroData,
+	getCategories,
+	getFeaturedProjects,
+	getTestimonials,
+	getAboutSection,
+	getSettings,
 } from "@/lib/data/fetch";
 
 export default async function Home() {
   // All data fetched in parallel — one round-trip
-  const [hero, categories, featuredWorks, testimonials, about, settings] =
-    await Promise.all([
-      getHeroData(),
-      getCategories(),
-      getFeaturedWorks(),
-      getTestimonials(),
-      getAboutSection(),
-      getSettings(),
-    ]);
+  const [hero, categories, featuredProjects, testimonials, about, settings] =
+		await Promise.all([
+			getHeroData(),
+			getCategories(),
+			getFeaturedProjects(),
+			getTestimonials(),
+			getAboutSection(),
+			getSettings(),
+		]);
 
   const whatsappUrl = `https://wa.me/${settings.whatsapp_number}?text=${encodeURIComponent(
     settings.whatsapp_message || ""
@@ -69,7 +45,7 @@ export default async function Home() {
         whatsappUrl={whatsappUrl}
       />
       <WorkCategories categories={categories} />
-      <FeaturedWorks projects={featuredWorks} />
+      <FeaturedWorks projects={featuredProjects} />
       <Testimonials testimonials={testimonials} />
       <AboutSection data={about} />
       <CTABanner

@@ -9,7 +9,11 @@ async function verifyAdmin() {
 
 export async function GET() {
   const db = createServiceClient();
-  const { data } = await db.from("about_section").select("*").single();
+  const { data, error } = await db.from("about_section").select("*").single();
+  if (error) {
+    console.error("Error fetching about section:", error);
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
   return NextResponse.json(data);
 }
 
