@@ -11,7 +11,7 @@
 **A full-stack artist portfolio platform with a custom-built headless CMS.**
 *Built so a working artist never has to touch code again.*
 
-[Live Demo](#) · [Admin Demo](#) · [Report Bug](#) · [Request Feature](#)
+[Live Demo](https://sheffexarts.vercel.app/) · [Admin Demo](#) · [Report Bug](#) · [Request Feature](#)
 
 </div>
 
