@@ -62,6 +62,36 @@ export interface FeaturedWorkRow {
 	updated_at: string;
 }
 
+
+// ─── Projects ─────────────────────────────────────────────────────────────
+export interface ProjectRow {
+  id: string;
+  slug: string;
+  title: string;
+  category: "inks" | "canvas" | "walls";
+  description: string;
+  featured_image_url: string;
+  is_featured: boolean;
+  sort_order: number;
+  is_active: boolean;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface ProjectPricingRow {
+  id: string;
+  project_id: string;
+  name: string;
+  price: string;
+  note: string | null;
+  sort_order: number;
+}
+
+export interface ProjectWithRelations extends ProjectRow {
+  pricing: ProjectPricingRow[];
+  gallery: GalleryItemRow[];
+}
+
 export interface TestimonialRow {
 	id: string;
 	name: string;
@@ -111,6 +141,7 @@ export interface GalleryItemRow {
 	category: "inks" | "canvas" | "walls";
 	title: string;
 	sort_order: number;
+	project_id: string | null;
 	is_active: boolean;
 	created_at: string;
 	updated_at: string;

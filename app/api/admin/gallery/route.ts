@@ -15,10 +15,14 @@ async function verifyAdmin() {
 
 export async function GET() {
 	const db = createServiceClient();
-	const { data } = await db
+	const { data, error } = await db
 		.from("gallery_items")
 		.select("*")
 		.order("sort_order");
+	if (error) {
+		console.error("Error fetching gallery items:", error);
+		return NextResponse.json({ error: error.message }, { status: 500 });
+	}
 	return NextResponse.json(data);
 }
 
@@ -45,6 +49,7 @@ export async function PUT(req: NextRequest) {
 			category: body.category,
 			image_url: body.image_url,
 			sort_order: body.sort_order,
+			project_id: body.project_id ?? null,
 			updated_at: new Date().toISOString(),
 		})
 		.eq("id", body.id);

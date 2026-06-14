@@ -14,6 +14,17 @@ export async function GET() {
     db.from("hero_slides").select("*").order("sort_order"),
     db.from("hero_content").select("*").single(),
   ]);
+  if (slides.error) {
+		console.error("GET /api/admin/hero - slides error:", slides.error);
+		return NextResponse.json({ error: slides.error.message }, { status: 500 });
+	}
+
+	// .single() errors if there are 0 rows or >1 rows — treat "0 rows" as null content, not a failure
+	if (content.error && content.error.code !== "PGRST116") {
+		console.error("GET /api/admin/hero - content error:", content.error);
+		return NextResponse.json({ error: content.error.message }, { status: 500 });
+	}
+  
   return NextResponse.json({ slides: slides.data, content: content.data });
 }
 

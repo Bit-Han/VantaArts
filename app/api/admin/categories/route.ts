@@ -10,7 +10,11 @@ async function verifyAdmin() {
 
 export async function GET() {
   const db = createServiceClient();
-  const { data } = await db.from("categories").select("*").order("sort_order");
+  const { data, error } = await db.from("categories").select("*").order("sort_order");
+  if (error) {
+    console.error("Error fetching categories:", error);
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
   return NextResponse.json(data);
 }
 

@@ -9,7 +9,11 @@ async function verifyAdmin() {
 
 export async function GET() {
   const db = createServiceClient();
-  const { data } = await db.from("testimonials").select("*").order("sort_order");
+  const { data, error } = await db.from("testimonials").select("*").order("sort_order");
+  if (error) {
+    console.error("GET /api/admin/testimonials - error:", error);
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
   return NextResponse.json(data);
 }
 

@@ -1,5 +1,3 @@
-
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -51,7 +49,7 @@ export default function FeaturedWorksAdminPage() {
   useEffect(() => {
     fetch("/api/admin/featured-works")
       .then((r) => r.json())
-      .then((data: FeaturedWork[]) => setWorks(data));
+      .then((data: FeaturedWork[] | null ) => setWorks(data ?? []));
   }, []);
 
   const handleSave = async (work: FeaturedWork) => {
@@ -83,8 +81,8 @@ export default function FeaturedWorksAdminPage() {
       body: JSON.stringify({ ...newWork, sort_order: works.length }),
     });
     const res = await fetch("/api/admin/featured-works");
-    const data: FeaturedWork[] = await res.json();
-    setWorks(data);
+    const data: FeaturedWork[] | null = await res.json();
+    setWorks(data ?? []);
     setAdding(false);
     setNewWork({ ...BLANK_WORK });
   };
